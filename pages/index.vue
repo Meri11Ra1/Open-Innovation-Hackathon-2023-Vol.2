@@ -1,8 +1,10 @@
 <template>
   <div class="login-feild">
     <form class="login-form">
-      <p><input type="text" v-model="email" placeholder="メールアドレス" name="email" class="user-email" /></p>
-      <p><input type="text" v-model="password" placeholder="パスワード" name="password" class="user-password" /></p>
+      <p class="login-text">e-mail</p>
+        <input type="text" v-model="email" name="email" class="user-email" />
+      <p class="login-text">password</p>
+        <input type="text" v-model="password" name="password" class="user-password" />
       <div>
         <button type="submit" class="login-form-btn">ログイン</button>
       </div>
@@ -22,33 +24,52 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped >
 .login-field {
-  margin: 50%;
+  text-align: center;
+  width: 50vw;
+}
+
+.user-email-field {
+  margin: 0;
 }
 .user-email {
-    width: 50%;
-    height: 8vh;
-    margin: auto;
+    height: 5vh;
+    width: 100%;
+    display: flex;
     text-align: center;
+    box-sizing: border-box;
     color: black;
+    text-align: left;
+    margin-bottom: 16px;
+    margin-top:2px;
 }
 .user-password {
-  width: 50%;
-  height: 8vh;
-  margin: auto;
+  width: 100%;
+  height: 5vh;
+  box-sizing: border-box;
   text-align: center;
   color: black;
+  text-align: left;
+  margin-bottom: 24px;
+  margin-top: 2px;
 }
 
 .login-form {
   text-align: center;
-  margin-top: 30vh;
+  margin: auto;
+  margin-top: 50%;
+  width: 50vw;
 }
 .login-form-btn {
-  width: 30%;
+  width: 100%;
   height: 6vh;
   text-align: center;
+}
+
+.login-text {
+  text-align: left;
+  margin: 0%;
 }
 
 </style>
