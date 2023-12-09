@@ -4,7 +4,7 @@
       <p><input type="text" v-model="email" placeholder="メールアドレス" name="email" /></p>
       <p><input type="text" v-model="password" placeholder="パスワード" name="password" /></p>
       <div>
-        <button type="submit">ログイン</button>
+        <button type="submit">login</button>
       </div>
     </form>
   </div>
