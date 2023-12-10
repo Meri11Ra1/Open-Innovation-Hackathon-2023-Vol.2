@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mock-spot">
     <div class="spot-row">
       <div class="vertical-box icon-box">
         <img :src="spotData.icon" class="icon-img">
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .spot-row {
   border-top: 1px solid rgba(121, 116, 126, 0.16);
   border-bottom: 1px solid rgba(121, 116, 126, 0.16);

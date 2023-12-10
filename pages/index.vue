@@ -22,7 +22,7 @@ export default {
     }
   },
   methods: {
-    async login () {
+    login () {
       this.$router.push('/spot_list')
     }
   }
