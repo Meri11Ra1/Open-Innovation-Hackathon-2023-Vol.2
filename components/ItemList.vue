@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="header">
+      <div class="header-text">
+        <NuxtLink to="/spot_list">
+          <img src="@/assets/arrow-left.svg" class="back-img">
+        </NuxtLink>
+      </div>
       <p class="possession">保有pt: {{ userPoint }}</p>
-      <h1>
-        交換品一覧
-      </h1>
     </div>
     <div>
       <div v-for="itemList in itemData" :key="itemList.id" class="item_data">
@@ -53,13 +55,35 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 img {
   width: 80%;
 }
-
 .possession {
-  padding-right: 30vw;
+  margin-left: 50vw;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  height: 40px;
+  padding: 4px 8px;
+
+  width: 102%;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-bottom: 15px;
+
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.back-img {
+  margin-top: 7px;
+  margin-left: 5.6vw;
+  height: 40px;
+  width: 10vw;
 }
 
 .item_data dl,
