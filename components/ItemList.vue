@@ -1,25 +1,33 @@
 <template>
   <div>
-    <div v-for="itemList in itemData" :key="itemList.id" class="item_data">
-      <dl>
-        <input :id="itemList.id" type="checkbox">
-        <label :for="itemList.id">
-          <dt>
-            {{ itemList.listName }}
-          </dt>
-        </label>
-        <dd>
-          <div v-for="items in itemList.items" :key="items.id" class="items">
-            <ul>
-              <li>
-                <img :src="items.icon" />
-                <p>{{ items.name + ' ' + items.cost + 'pt'}}</p>
-                <button @click="confirmExchange">交換する</button>
-              </li>
-            </ul>
-          </div>
-        </dd>
-      </dl>
+    <div class="header">
+      <p class="possession">保有pt: {{ userPoint }}</p>
+      <h1>
+        交換品一覧
+      </h1>
+    </div>
+    <div>
+      <div v-for="itemList in itemData" :key="itemList.id" class="item_data">
+        <dl>
+          <input :id="itemList.id" type="checkbox">
+          <label :for="itemList.id">
+            <dt>
+              {{ itemList.listName }}
+            </dt>
+          </label>
+          <dd>
+            <div v-for="items in itemList.items" :key="items.id" class="items">
+              <ul>
+                <li>
+                  <img :src="items.icon" />
+                  <p>{{ items.name + ' ' + items.cost + 'pt'}}</p>
+                  <button @click="confirmExchange(items)">交換する</button>
+                </li>
+              </ul>
+            </div>
+          </dd>
+        </dl>
+      </div>
     </div>
   </div>
 </template>
@@ -27,11 +35,19 @@
 <script>
 export default {
   props: {
-    itemData: Array
+    itemData: Array,
+    point: Number
+  },
+  data () {
+    return {
+      userPoint: this.point
+    }
   },
   methods: {
-    confirmExchange () {
-      alert('交換しました')
+    confirmExchange (items) {
+      this.userPoint -= items.cost
+      alert(items.name + 'を交換しました')
+      console.log(this.userPoint)
     }
   }
 }
@@ -40,6 +56,10 @@ export default {
 <style>
 img {
   width: 80%;
+}
+
+.possession {
+  padding-right: 30vw;
 }
 
 .item_data dl,

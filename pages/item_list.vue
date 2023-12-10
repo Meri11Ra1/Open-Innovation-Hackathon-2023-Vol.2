@@ -1,9 +1,6 @@
 <template>
   <div>
-    <h1>
-      交換品一覧
-    </h1>
-    <item-list :item-data="itemData" />
+    <item-list :item-data="itemData" :point="point" />
   </div>
 </template>
 
@@ -48,15 +45,18 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      point: 10
     }
   }
 }
 </script>
 
 <style>
-h1 {
-  text-align: center;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 p, button , label{
