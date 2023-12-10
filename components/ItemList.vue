@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <div class="header-text">
-        <NuxtLink to="/spot_list">
+        <NuxtLink to="/my_page">
           <img src="@/assets/arrow-left.svg" class="back-img">
         </NuxtLink>
       </div>
