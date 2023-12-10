@@ -61,12 +61,12 @@ export default {
   text-align: center;
   margin: auto;
   margin-top: 35vh;
-  width: 50vw;
+  width: 80vw;
   font-size: larger;
 }
 .login-form-btn {
-  width: 80%;
-  height: 6vh;
+  width: 60%;
+  height: 8vh;
   text-align: center;
   border: none;
   background-color:rgb(65, 176, 245);
