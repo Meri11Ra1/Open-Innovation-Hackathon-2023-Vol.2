@@ -15,7 +15,7 @@
           <span class="point">00</span>
           <span>pt</span>
         </div>
-        <a href="#" class="button"><span>交換可能な商品・サービスを見る</span></a>
+        <a href="/item_list" class="button"><span>交換可能な商品・サービスを見る</span></a>
       </div>
     </div>
   </div>
