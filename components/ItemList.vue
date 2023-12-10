@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div v-for="itemList in itemData" :key="itemList.id" class="item">
+    <div v-for="itemList in itemData" :key="itemList.id" class="item_data">
       <dl>
-        <input id="toggle" type="checkbox">
-        <label for="toggle">
+        <input :id="itemList.id" type="checkbox">
+        <label :for="itemList.id">
           <dt>
             {{ itemList.listName }}
           </dt>
         </label>
-        <dd v-for="items in itemList.items" :key="items.id">
-          <ul>
-            <li>
-              <img :src="items.icon" />
-              <p>{{ items.name }}</p>
-              <button>交換する</button>
-            </li>
-          </ul>
+        <dd>
+          <div v-for="items in itemList.items" :key="items.id" class="items">
+            <ul>
+              <li>
+                <img :src="items.icon" />
+                <p>{{ items.name }}</p>
+                <button>交換する</button>
+              </li>
+            </ul>
+          </div>
         </dd>
       </dl>
     </div>
@@ -35,32 +37,32 @@ img {
   width: 80%;
 }
 
-.item dl,
-.item dt,
-.item dd {
+.item_data dl,
+.item_data dt,
+.item_data dd {
 margin: 0;
 padding: 0;
 }
 
-.item dl+dl {
+.item_data dl+dl {
 margin-top: 1rem;
 }
 
-.item dt,
-.item dd {
+.item_data dt,
+.item_data dd {
 padding: 10px;
 }
 
-.item dl {
+.item_data dl {
 position: relative;
 overflow: hidden;
 }
 
-.item dl>input {
+.item_data dl>input {
 display: none;
 }
 
-.item dt {
+.item_data dt {
 position: relative;
 z-index: 1;
 padding-right: 40px;
@@ -70,7 +72,7 @@ transition: .4;
 border: solid 1px #adadad;
 }
 
-.item dd {
+.item_data dd {
 position: absolute;
 visibility: hidden;
 transform: translateY(-100%);
@@ -80,13 +82,13 @@ border: solid 1px #adadad;
 border-top: none;
 }
 
-.item dl>input:checked+label+dd {
+.item_data dl>input:checked+label+dd {
 position: relative;
 visibility: visible;
 transform: translateY(0);
 }
 
-.item dt::before {
+.item_data dt::before {
 content: ”;
 position: absolute;
 top: 50%;
@@ -98,8 +100,12 @@ transform: translateY(-50%);
 transition: .4s;
 }
 
-.item dl>input:checked+label>dt::before {
+.item_data dl>input:checked+label>dt::before {
 transform: translateY(-50%) rotate(180deg);
+}
+
+.items {
+  margin-top: 2vh;
 }
 
 ul {
