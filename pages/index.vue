@@ -1,14 +1,14 @@
 <template>
   <div class="login-feild">
-    <form class="login-form">
+    <div class="login-form">
       <p class="login-text">e-mail</p>
         <input type="text" v-model="email" name="email" class="user-email" />
       <p class="login-text">password</p>
         <input type="password" v-model="password" name="password" class="user-password" />
       <div>
-        <button type="submit" class="login-form-btn">ログイン</button>
+        <button class="login-form-btn" @click="login">ログイン</button>
       </div>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -19,6 +19,11 @@ export default {
     return {
       email: '',
       password: ''
+    }
+  },
+  methods: {
+    async login () {
+      this.$router.push('/spot_list')
     }
   }
 }
@@ -61,12 +66,12 @@ export default {
   text-align: center;
   margin: auto;
   margin-top: 35vh;
-  width: 50vw;
+  width: 80vw;
   font-size: larger;
 }
 .login-form-btn {
-  width: 80%;
-  height: 6vh;
+  width: 60%;
+  height: 8vh;
   text-align: center;
   border: none;
   background-color:rgb(65, 176, 245);
