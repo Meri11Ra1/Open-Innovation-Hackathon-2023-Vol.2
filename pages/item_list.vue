@@ -18,8 +18,33 @@ export default {
           items: [
             {
               id: 1,
+              cost: 5,
               icon: require('../static/tshirt.png'),
               name: 'yuhayuhaのプリントTシャツ'
+            },
+            {
+              id: 2,
+              cost: 5,
+              icon: require('../static/tshirt.png'),
+              name: 'yuhayuhaのプリントTシャツ'
+            }
+          ]
+        },
+        {
+          id: 2,
+          listName: 'props',
+          items: [
+            {
+              id: 1,
+              cost: 5,
+              icon: require('../static/tshirt.png'),
+              name: 'yuhayuha'
+            },
+            {
+              id: 2,
+              cost: 5,
+              icon: require('../static/tshirt.png'),
+              name: 'yuhayuha'
             }
           ]
         }

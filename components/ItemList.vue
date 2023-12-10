@@ -13,8 +13,8 @@
             <ul>
               <li>
                 <img :src="items.icon" />
-                <p>{{ items.name }}</p>
-                <button>交換する</button>
+                <p>{{ items.name + ' ' + items.cost + 'pt'}}</p>
+                <button @click="confirmExchange">交換する</button>
               </li>
             </ul>
           </div>
@@ -27,7 +27,12 @@
 <script>
 export default {
   props: {
-    itemData: Object
+    itemData: Array
+  },
+  methods: {
+    confirmExchange () {
+      alert('交換しました')
+    }
   }
 }
 </script>
