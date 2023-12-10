@@ -34,13 +34,13 @@ export default {
             {
               id: 1,
               cost: 5,
-              icon: require('../static/tshirt.png'),
+              icon: require('../static/yuhayuha.png'),
               name: 'yuhayuha'
             },
             {
               id: 2,
               cost: 5,
-              icon: require('../static/tshirt.png'),
+              icon: require('../static/yuhayuha.png'),
               name: 'yuhayuha'
             }
           ]
