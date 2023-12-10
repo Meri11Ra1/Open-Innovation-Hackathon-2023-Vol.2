@@ -71,7 +71,7 @@ img {
   height: 40px;
   padding: 4px 8px;
 
-  width: 102%;
+  width: 100%;
   margin-left: -8px;
   margin-top: -8px;
   margin-bottom: 15px;
