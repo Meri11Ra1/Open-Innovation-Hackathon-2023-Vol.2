@@ -1,7 +1,7 @@
 <template>
   <div class="login-feild">
     <div class="login-form">
-      <p class="login-text">e-mail</p>
+      <p class="login-text">user-id</p>
         <input type="text" v-model="email" name="email" class="user-email" />
       <p class="login-text">password</p>
         <input type="password" v-model="password" name="password" class="user-password" />
@@ -13,6 +13,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { ref } from 'vue'
+const isLoginSuccess = ref(false)
 export default {
   name: 'IndexPage',
   data () {
@@ -22,8 +25,26 @@ export default {
     }
   },
   methods: {
-    login () {
-      this.$router.push('/spot_list')
+    async login () {
+      try {
+        const res = await axios.post(process.env.API_URL + 'login', {
+          user_id: this.email,
+          password: this.password
+        })
+        const { data } = res
+
+        if (res.status === 200) {
+          isLoginSuccess.value = true
+        }
+        this.$cookies.set('session_token', data.data.save_token)
+      } catch (err) {
+        console.log(err)
+      }
+
+      if (isLoginSuccess.value) {
+        console.log('aaaaaa:' + this.$router)
+        this.$router.push('/spot_list')
+      }
     }
   }
 }
