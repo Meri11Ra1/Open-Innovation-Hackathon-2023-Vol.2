@@ -25,12 +25,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NuxtItemList'
-}
-</script>
-
 <style>
 h1 {
   text-align: center;
