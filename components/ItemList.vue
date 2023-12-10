@@ -1,56 +1,66 @@
 <template>
-  <div class="item_list">
-    <dl>
-      <input id="clothes_toggle" type="checkbox">
-      <label for="clothes_toggle">
-        <dt>
-          服
-        </dt>
-      </label>
-      <dd>
-        <ul>
-          <li>
-            <img src="../static/fashion_tshirt1_white.png" alt="yuhayuhaのプリントTシャツ">
-            <p>yuhayuhaのプリントTシャツ 50ポイント</p>
-            <button>交換する</button>
-          </li>
-        </ul>
-      </dd>
-    </dl>
+  <div>
+    <div v-for="itemList in itemData" :key="itemList.id" class="item">
+      <dl>
+        <input id="toggle" type="checkbox">
+        <label for="toggle">
+          <dt>
+            {{ itemList.listName }}
+          </dt>
+        </label>
+        <dd v-for="items in itemList.items" :key="items.id">
+          <ul>
+            <li>
+              <img :src="items.icon" />
+              <p>{{ items.name }}</p>
+              <button>交換する</button>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    itemData: Object
+  }
+}
+</script>
 
 <style>
 img {
   width: 80%;
 }
 
-.item_list dl,
-.item_list dt,
-.item_list dd {
+.item dl,
+.item dt,
+.item dd {
 margin: 0;
 padding: 0;
 }
 
-.item_list dl+dl {
+.item dl+dl {
 margin-top: 1rem;
 }
 
-.item_list dt,
-.item_list dd {
+.item dt,
+.item dd {
 padding: 10px;
 }
 
-.item_list dl {
+.item dl {
 position: relative;
 overflow: hidden;
 }
 
-.item_list dl>input {
+.item dl>input {
 display: none;
 }
 
-.item_list dt {
+.item dt {
 position: relative;
 z-index: 1;
 padding-right: 40px;
@@ -60,7 +70,7 @@ transition: .4;
 border: solid 1px #adadad;
 }
 
-.item_list dd {
+.item dd {
 position: absolute;
 visibility: hidden;
 transform: translateY(-100%);
@@ -70,13 +80,13 @@ border: solid 1px #adadad;
 border-top: none;
 }
 
-.item_list dl>input:checked+label+dd {
+.item dl>input:checked+label+dd {
 position: relative;
 visibility: visible;
 transform: translateY(0);
 }
 
-.item_list dt::before {
+.item dt::before {
 content: ”;
 position: absolute;
 top: 50%;
@@ -88,7 +98,7 @@ transform: translateY(-50%);
 transition: .4s;
 }
 
-.item_list dl>input:checked+label>dt::before {
+.item dl>input:checked+label>dt::before {
 transform: translateY(-50%) rotate(180deg);
 }
 
